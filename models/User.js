@@ -6,6 +6,12 @@ const userSchema = new Schema({
         required: true,
         trim: true
     },
+    email: {
+        type: String, 
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+    },
     // array of _id values referencing the Thought model
     thoughts: [{
         type: Schema.Types.ObjectId,
